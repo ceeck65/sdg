@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-breadcrumb',
+  selector: 'app-breadcrumbs',
   templateUrl: './breadcrumb.component.html'
 })
 export class BreadcrumbComponent implements OnInit {

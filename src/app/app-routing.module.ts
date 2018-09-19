@@ -10,7 +10,7 @@ export const Approutes: Routes = [
     path: '',
     component: FullComponent,
     children: [
-        { path: '', redirectTo: '/starter', pathMatch: 'full' },
+        { path: '', redirectTo: '/', pathMatch: 'full' },
         { path: 'home', loadChildren: './pages/home/home.module#HomeModule' },
         { path: 'users', loadChildren: './pages/users/users.module#UsersModule' },
         { path: 'component', loadChildren: './component/component.module#ComponentsModule' },
