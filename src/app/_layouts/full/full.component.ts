@@ -12,10 +12,10 @@ export class FullComponent implements OnInit {
 
     color = 'defaultdark';
     showSettings = false;
-    showMinisidebar = false; 
+    showMinisidebar = false;
     showDarktheme = false;
 
-	public config: PerfectScrollbarConfigInterface = {};
+    public config: PerfectScrollbarConfigInterface = {};
 
     constructor(public router: Router) { }
 
