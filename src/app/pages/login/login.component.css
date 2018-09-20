@@ -1,0 +1,14 @@
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form-container>* {
+    width: 100%;
+}
+
+.mat-form-field-infix,
+.mat-form-field {
+    float: left;
+    width: 100%;
+}

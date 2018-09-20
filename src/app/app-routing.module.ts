@@ -6,23 +6,23 @@ import { FullComponent } from './layouts/full/full.component';
 import { LoginComponent } from './pages/login/login.component';
 
 export const Approutes: Routes = [
-{
-    path: '',
-    component: FullComponent,
-    children: [
-        { path: '', redirectTo: '/', pathMatch: 'full' },
-        { path: 'home', loadChildren: './pages/home/home.module#HomeModule' },
-        { path: 'users', loadChildren: './pages/users/users.module#UsersModule' },
-        { path: 'component', loadChildren: './component/component.module#ComponentsModule' },
-    ]
-},
-{
-    path: 'login',
-    component: LoginComponent,
-},
-{
-    path: '**',
-    redirectTo: '/home'
-}];
+    {
+        path: '',
+        component: FullComponent,
+        children: [
+            { path: '', redirectTo: '/', pathMatch: 'full' },
+            { path: 'home', loadChildren: './pages/home/home.module#HomeModule' },
+            { path: 'users', loadChildren: './pages/users/users.module#UsersModule' },
+            { path: 'component', loadChildren: './component/component.module#ComponentsModule' },
+        ]
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+    },
+    {
+        path: '**',
+        redirectTo: '/login'
+    }];
 
 

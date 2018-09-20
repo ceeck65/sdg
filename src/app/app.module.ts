@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { MaterialModule } from './material';
 
 import { FullComponent } from './layouts/full/full.component';
 
@@ -45,12 +46,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   imports: [
     CommonModule,
     BrowserModule,
-// BrowserAnimationsModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(Approutes, { useHash: false }),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    MaterialModule
   ],
   providers: [
     {
@@ -64,4 +66,4 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
