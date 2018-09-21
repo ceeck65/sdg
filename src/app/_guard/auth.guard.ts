@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
     }
 
     // si no existe un token en local storage el usuario en redireccionado al login
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
     return false;
   }
 }
