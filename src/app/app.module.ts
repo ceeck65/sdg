@@ -1,6 +1,7 @@
 import * as $ from 'jquery';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
   CommonModule,
   LocationStrategy,
@@ -50,6 +51,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(Approutes, { useHash: false }),
