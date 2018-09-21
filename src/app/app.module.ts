@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { MaterialModule } from './material';
+import { CookieService } from 'ngx-cookie-service';
 
 import { FullComponent } from './_layouts/full/full.component';
 
@@ -66,7 +67,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
-    }
+    },
+    CookieService,
   ],
   bootstrap: [AppComponent]
 })
