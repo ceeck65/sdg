@@ -1,6 +1,13 @@
-body {
-    background: #dedede;
+.panel {
+    height: 39.1em;
+    background-size: cover;
+    width: auto;
+    background-image: url('/assets/images/background/error-bg.jpg');
+    background-position: 50% 50%;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
 }
+
 .page-wrap {
-    min-height: 100vh;
+    min-height: 80vh;
 }

@@ -1,6 +1,34 @@
+.panel {
+    height: 39.1em;
+    background-size: cover;
+    width: auto;
+    background-image: url('/assets/images/background/login-register.jpg');
+    background-position: 50% 50%;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+}
+
+.card-signin {
+    width: 35%;
+    margin-top: 35px;
+    transition: box-shadow .25s;
+    background: #fafafa;
+    border: 0 solid #ebebeb;
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+}
+
+.card-signin .card-title {
+    margin-top: 0.3em;
+    color: white;
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
 .login-form-container {
     display: flex;
     flex-direction: column;
+    margin: auto;
+    background: #00aced;
 }
 
 .login-form-container>* {
@@ -11,4 +39,33 @@
 .mat-form-field {
     float: left;
     width: 100%;
+}
+
+.mat-icon {
+    font-size: 2em;
+    margin-left: 15px;
+    line-height: 0.7em;
+}
+
+.login-icon {
+    margin-right: 10px;
+}
+
+.row {
+    display: grid;
+}
+
+.btn-login {
+    margin-bottom: 1em;
+    color: #745af2 !important;
+    background-color: transparent !important;
+    border-color: #745af2 !important;
+    box-shadow: 0 2px 2px 0 rgba(116, 90, 242, 0.36), 0 3px 1px -2px rgba(116, 90, 242, 0.2), 0 1px 5px 0 rgba(4116, 90, 242, 0.12) !important;
+}
+
+.btn-login:hover {
+    color: #ab9cf3 !important;
+    background-color: transparent !important;
+    border-color: #ab9cf3 !important;
+    box-shadow: 0 3px 2px 0 rgba(116, 90, 242, 0.36), 0 3px 1px -2px rgba(116, 90, 242, 0.2), 0 3px 5px 0 rgba(4116, 90, 242, 0.12) !important;
 }

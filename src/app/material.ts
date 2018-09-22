@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
-
+import { MatInputModule, MatGridTile } from '@angular/material';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { MatInputModule } from '@angular/material';
         MatFormFieldModule,
         MatListModule,
         MatCardModule,
-        MatInputModule
+        MatInputModule,
+        MatGridListModule
     ],
     exports: [
         MatButtonModule,
@@ -31,7 +32,8 @@ import { MatInputModule } from '@angular/material';
         MatFormFieldModule,
         MatListModule,
         MatCardModule,
-        MatInputModule
+        MatInputModule,
+        MatGridListModule
     ],
 })
 export class MaterialModule { }

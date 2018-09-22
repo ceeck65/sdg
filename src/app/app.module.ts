@@ -13,7 +13,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { MaterialModule } from './material';
 import { CookieService } from 'ngx-cookie-service';
-
 import { FullComponent } from './_layouts/full/full.component';
 
 import { NavigationComponent } from './_shared/header-navigation/navigation.component';
@@ -29,6 +28,7 @@ import { AppComponent } from './app.component';
 import { SpinnerComponent } from './_shared/spinner.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NoFoundComponent } from './pages/no-found/no-found.component';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,

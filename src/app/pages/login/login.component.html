@@ -1,65 +1,67 @@
-<div class="login-form-container">
+<div class="panel" id="background">
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <h2>Please Login</h2>
-            <hr>
-        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mx-auto card-signin" [style.background]="'white'">
+                <mat-grid-list cols="12" rowHeight="50px">
+                    <mat-grid-tile [colspan]="12" [rowspan]="1" [style.background]="'#745AF2'">
+                        <h5 class="card-title text-center">
+                            <i class="ti-user"></i> Acceso
+                        </h5>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="12" rowHeight="80px">
+                    <mat-grid-tile [rowspan]="1" [colspan]="2">
+                        <mat-icon matPrefix>mail</mat-icon>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="9">
+                        <mat-form-field>
+                            <input matInput formControlName="email" placeholder="Ingrese Correo electrónico" [ngClass]="{ 'is-invalid': submitted &&
+                                            f.email.errors }" class="custom-input" required autofocus>
+                            <!--mat-error *ngIf="f.email.errors.required">Correo electrónico es requiredo</mat-error-->
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="12" rowHeight="80px">
+                    <mat-grid-tile [rowspan]="1" [colspan]="2">
+                        <mat-icon matPrefix>lock</mat-icon>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="9">
+                        <mat-form-field>
+                            <input matInput placeholder="Ingrese
+                                                contraseña" [type]="hide ? 'password' :
+                                                    'text'" formControlName="password" [ngClass]="{
+                                                    'is-invalid':
+                                                    submitted && f.password.errors }" required>
+                            <mat-icon matSuffix (click)="hide= !hide">{{hide ? 'visibility' : 'visibility_off'}}
+                            </mat-icon>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="12">
+                    <mat-grid-tile [colspan]="12" [rowspan]="1">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">recordar contraseña</label>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="12" rowHeight="80px">
+                    <mat-grid-tile [colspan]="2" [rowspan]="1"></mat-grid-tile>
+                    <mat-grid-tile [colspan]="9">
+                        <button [disabled]="loading" class="btn btn-outline-success
+                                btn-block btn-login"><i
+                *ngIf="!loading" class="fa fa-sign-in login-icon"></i>
+              {{ login }}
+              <img *ngIf="loading" width="20" height="20" style="margin-left: 3px" src="assets/images/icon/loading.svg" />
+            </button>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <mat-grid-list cols="12" rowHeight="5px">
+                    <mat-grid-tile [colspan]="12" [rowspan]="1" [style.background]="'#745AF2'"></mat-grid-tile>
+                </mat-grid-list>
+            </div>
+        </form>
     </div>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <mat-form-field>
-                    <input matInput formControlName="email" placeholder="Enter
-                        your email" [ngClass]="{ 'is-invalid': submitted &&
-                        f.email.errors }" required>
-                </mat-form-field>
-                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                    <div *ngIf="f.email.errors.required">Email is required</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <mat-form-field>
-                    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password" [ngClass]="{ 'is-invalid':
-                        submitted && f.password.errors }" required>
-                    <mat-icon matSuffix (click)="hide= !hide">{{hide ? 'visibility' : 'visibility_off'}}
-                    </mat-icon>
-                </mat-form-field>
-                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                    <div *ngIf="f.password.errors.required">Password is required</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6" style="padding-top: .35rem">
-                <div class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <label class="form-check-label">
-                        <input class="form-check-input" name="remember"
-                            type="checkbox">
-                        <span style="padding-bottom: .15rem">Remember me</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1rem">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <button [disabled]="loading" class="btn btn-success"><i
-                        class="fa
-                        fa-sign-in"></i>
-                    {{ login }}
-                    <img *ngIf="loading"
-                        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
-                </button>
-                <a class="btn btn-link" href="/password/reset">Forgot Your
-                    Password?</a>
-            </div>
-            <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-        </div>
-    </form>
 </div>
