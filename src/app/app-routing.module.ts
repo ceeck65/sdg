@@ -13,6 +13,7 @@ export const Approutes: Routes = [
         component: FullComponent,
         children: [
             { path: '', redirectTo: '/', pathMatch: 'full', canActivate: [AuthGuard] },
+            { path: '', redirectTo: '', pathMatch: 'full', canActivate: [AuthGuard] },
             { path: 'index', loadChildren: './pages/home/home.module#HomeModule', canActivate: [AuthGuard] },
             { path: 'index.html', loadChildren: './pages/home/home.module#HomeModule', canActivate: [AuthGuard] },
             { path: 'home', loadChildren: './pages/home/home.module#HomeModule', canActivate: [AuthGuard] },

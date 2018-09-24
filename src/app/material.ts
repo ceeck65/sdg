@@ -6,6 +6,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule, MatGridTile } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
         MatListModule,
         MatCardModule,
         MatInputModule,
-        MatGridListModule
+        MatGridListModule,
+        MatSelectModule
     ],
     exports: [
         MatButtonModule,
@@ -33,7 +35,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
         MatListModule,
         MatCardModule,
         MatInputModule,
-        MatGridListModule
+        MatGridListModule,
+        MatSelectModule
     ],
 })
 export class MaterialModule { }

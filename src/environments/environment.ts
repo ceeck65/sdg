@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  apiEndpoint: 'https://member-manager-cachorros.herokuapp.com'
+  apiEndpoint: 'https://member-manager-cachorros.herokuapp.com',
+  hashKeyToken: '2y$12$2SNOsAeDjtzDtPUuFqvpG.5h1UiSDNYeM9BI57f65dTmF4VsO0.8S'
 };

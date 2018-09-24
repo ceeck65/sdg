@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../../_services/auth/authentication-service.service';
+import { NgxNotificationService } from 'ngx-notification';
+import { NgxNotifierService } from 'ngx-notifier';
+
+
 
 
 @Component({
@@ -17,16 +21,19 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   error = '';
   login = 'Iniciar sesión';
+  message = '';
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService) { }
+    private authenticationService: AuthenticationService,
+    private ngxNotificationService: NgxNotificationService,
+    private _ngxNotifierService: NgxNotifierService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
 
     // invoca la funcion que elimina el valor de local Storage
@@ -53,10 +60,12 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          this._ngxNotifierService.createToast('Sesión iniciada', 'success', 5000);
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          this.error = error;
+          this.message = '<i class="ti-alert icon-toarst"></i> Credenciales incorrectas, verifica e intenta de nuevo';
+          this._ngxNotifierService.createToast(this.message, 'danger', 5000);
           this.loading = false;
           this.login = 'Iniciar sesión';
         });

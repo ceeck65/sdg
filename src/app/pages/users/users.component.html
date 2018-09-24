@@ -1,3 +1,190 @@
-<p>
-  users works!
-</p>
+<div class="panel" id="background">
+    <app-ngx-notifier [allowHTML]="true" [dismissOnClick]="true" [insertOnTop]="false" [max]="5">
+    </app-ngx-notifier>
+    <div class="mx-auto form-head" [style.background]="'#745AF2'">
+        Registro de usuarios
+    </div>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="mx-auto form-user" [style.background]="'white'">
+            <div class="columns">
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-1">
+                            <mat-icon matPrefix>person</mat-icon>
+                        </div>
+                        <div class="column is-11">
+                            <mat-form-field>
+                                <input matInput formControlName="name" placeholder="Nombres" [ngClass]="{ 'is-invalid': submitted &&
+                                f.name.errors }" class="custom-input" autofocus>
+                            </mat-form-field>
+                            <mat-error *ngIf="f.name.errors?.required">Nombres es requerido</mat-error>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-1">
+                            <mat-icon matPrefix>person</mat-icon>
+                        </div>
+                        <div class="column is-11">
+                            <mat-form-field>
+                                <input matInput formControlName="last_name" placeholder="Apellidos" [ngClass]="{ 'is-invalid': submitted &&
+                                f.last_name.errors }" class="custom-input">
+                            </mat-form-field>
+                            <mat-error *ngIf="f.last_name.errors?.required">Apellidos es requerido</mat-error>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-1">
+                            <i class="fa fa-tag"></i>
+                        </div>
+                        <div class="column is-11">
+                            <mat-form-field>
+                                <input matInput formControlName="age" type="number" placeholder="Edad" [ngClass]="{ 'is-invalid': submitted &&
+                                f.age.errors }" class="custom-input">
+                            </mat-form-field>
+                            <mat-error *ngIf="f.age.errors?.required">Edad es requerido</mat-error>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-1">
+                            <i class="fa fa-id-card"></i>
+                        </div>
+                        <div class="column is-11">
+                            <mat-form-field>
+                                <input matInput formControlName="identification_id" placeholder="Cédula de identidad" [ngClass]="{ 'is-invalid': submitted &&
+                                f.identification_id.errors }" class="custom-input">
+                            </mat-form-field>
+                            <mat-error *ngIf="f.identification_id.errors?.required">Apellidos es requerido</mat-error>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-1">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="column is-11">
+                            <mat-form-field>
+                                <input matInput type="tel" formControlName="telephone" placeholder="Teléfono" [ngClass]="{ 'is-invalid': submitted &&
+                                f.telephone.errors }" class="custom-input">
+                            </mat-form-field>
+                            <mat-error *ngIf="f.telephone.errors?.required">Teléfono es requerido</mat-error>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-1">
+                            <i class="fa fa-university"></i>
+                        </div>
+                        <div class="column is-11">
+                            <mat-form-field>
+                                <input matInput formControlName="municipality" placeholder="Municipio" [ngClass]="{ 'is-invalid': submitted &&
+                                f.municipality.errors }" class="custom-input">
+                            </mat-form-field>
+                            <mat-error *ngIf="f.municipality.errors?.required">Municipio es requerido</mat-error>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-1">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="column is-11">
+                            <mat-form-field>
+                                <input matInput formControlName="email" type="email" placeholder="Correo eléctronico" [ngClass]="{ 'is-invalid': submitted &&
+                                f.email.errors }" class="custom-input">
+                            </mat-form-field>
+                            <mat-error *ngIf="f.email.errors?.required">Correo electrónico es requerido</mat-error>
+                            <mat-error *ngIf="f.email.errors?.email">Debes ingresa un correo electrónico válido</mat-error>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-1">
+                            <i class="fa fa-twitter"></i>
+                        </div>
+                        <div class="column is-11">
+                            <mat-form-field>
+                                <input matInput formControlName="twitter_account" placeholder="Cuenta de Twitter" class="custom-input">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-1">
+                            <i class="fa fa-venus-mars"></i>
+                        </div>
+                        <div class="column is-11">
+                            <mat-form-field>
+                                <mat-select formControlName="gender" [ngClass]="{ 'is-invalid': submitted &&
+                                f.gender.errors }" placeholder="Selecciona género">
+                                    <mat-option *ngFor="let g of gender" [value]="g.value"><i [ngClass]="g.icon"></i> {{ g.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-error *ngIf="f.gender.errors?.required">Debes seleccionar un género</mat-error>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-1">
+                            <i class="fa fa-group"></i>
+                        </div>
+                        <div class="column is-11">
+                            <mat-form-field>
+                                <mat-select formControlName="rol_id" [ngClass]="{ 'is-invalid': submitted &&
+                                f.rol_id.errors }" placeholder="Selecciona rol">
+                                    <mat-option *ngFor="let rol of roles" [value]="rol.value"><i [ngClass]="rol.icon"></i> {{ rol.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-error *ngIf="f.rol_id.errors?.required">Debes seleccionar un Rol</mat-error>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column" *ngIf="rol">
+                <div class="columns">
+                    <div class="column is-1">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div class="column is-11">
+                        <mat-form-field>
+                            <input matInput formControlName="password" type="password" placeholder="Contraseña" class="custom-input">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <button [disabled]="loading" class="btn btn-outline-success btn-block"><i *ngIf="!loading" class="fa fa-save"></i>
+            {{ action_message }} <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
+          </button>
+                </div>
+                <div class="column">
+                    <button type="reset" class="btn btn-outline-danger btn-block"><i class="fa fa-ban"></i> Cancelar
+
+          </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

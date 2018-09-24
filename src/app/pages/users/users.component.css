@@ -1,0 +1,74 @@
+.mat-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 30px;
+    width: 30px;
+    font-size: 2em;
+    line-height: 1.8em;
+}
+
+.form-user {
+    padding: 50px 15px;
+}
+
+.form-head {
+    height: 2.5em;
+    color: white;
+    font-family: Roboto;
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 2.5em;
+    text-align: center;
+}
+
+.form-user i {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 30px;
+    width: 30px;
+    font-size: 2em;
+    line-height: 1.8em;
+}
+
+button {
+    height: 2.25em;
+    line-height: 1.3em;
+    font-size: 1.3em;
+    font-family: 'Roboto' !important;
+    text-align: center !important;
+}
+
+button i {
+    line-height: 1.3em;
+    font-size: 1em !important;
+}
+
+button:hover {
+    background: transparent;
+}
+
+.btn-outline-success:hover {
+    color: #06d79c;
+}
+
+.btn-outline-success {
+    font-family: 'Roboto' !important;
+}
+
+.btn-outline-danger:hover {
+    color: #ef5350;
+}
+
+.ngx-notifier[_ngcontent-c2] {
+    position: fixed;
+    min-width: 25rem;
+    max-width: 25rem;
+    right: 1rem !important;
+    top: 1rem !important;
+}
+
+.icon-toarst {
+    font-size: 1.5em;
+}

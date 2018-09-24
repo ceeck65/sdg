@@ -2,24 +2,30 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { GuardianService } from '../_services/global/guardian.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  cookieValue = 'SDGSymtem';
-  constructor(private router: Router, private cookieService: CookieService) { }
+  stateToken: any;
+  promise: any;
+  constructor(private router: Router,
+    private guardianService: GuardianService) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot) {
-    if (this.cookieService.check('authToken')) {
-      // verifica el token almacenado en local storage, si existe dicho token retorna true
-      return true;
-    }
+    state: RouterStateSnapshot): Promise<boolean> {
 
-    // si no existe un token en local storage el usuario en redireccionado al login
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-    return false;
+    return new Promise((resolve) => {
+      this.guardianService.getTokenAuth()
+        .then(data => {
+          resolve(data);
+        })
+        .catch(err => {
+          this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+          resolve(err);
+        });
+    });
   }
 }
