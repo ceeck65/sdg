@@ -2,8 +2,8 @@
     "name": "sdg-test",
     "version": "0.0.0",
     "engines": {
-        "node": "8.9.4",
-		"npm": "3.10.10"
+        "node": "10.10.0",
+		"npm": "6.4.1"
     },
     "license": "MIT",
     "scripts": {
