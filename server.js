@@ -3,12 +3,12 @@ const express = require('express');
 const app = express();
 
 // Serve static files
-app.use(express.static(__dirname + '/dist/sdg-test'));
+app.use(express.static(__dirname + '/dist/sdgangular'));
 
 // Send all requests to index.html
 app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/sdg-test/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/sdgangular/index.html'));
 });
 
 // default Heroku port
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 8080);
